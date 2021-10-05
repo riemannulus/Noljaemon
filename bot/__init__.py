@@ -1,0 +1,1 @@
+instance: "Bot" = None
