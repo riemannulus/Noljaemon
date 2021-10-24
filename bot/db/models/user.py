@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, BigInteger, String
 from bot.db.base import Base
 
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    discord_id = Column(String)
+    id = Column(BigInteger, primary_key=True)
+    name = Column(String, nullable=False)
+    discord_id = Column(String, nullable=False)
