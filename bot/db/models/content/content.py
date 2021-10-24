@@ -21,3 +21,8 @@ class Content(Base):
     name = Column(String, nullable=False)
     type = Column(EnumType(ContentType), nullable=False)
     character_contents = relationship('CharacterContent')
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'content',
+        'polymorphic_on': type
+    }
