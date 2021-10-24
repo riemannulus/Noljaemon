@@ -1,4 +1,8 @@
 from enum import Enum
+
+from sqlalchemy import Column, Integer, BigInteger, String, Enum as EnumType
+from sqlalchemy.orm import relationship
+
 from bot.db.base import Base
 
 
@@ -13,7 +17,7 @@ class ContentType(Enum):
 
 class Content(Base):
     __tablename__ = "content"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    type = Column(String)
-    item_level = Column(Integer)
+    id = Column(BigInteger, primary_key=True)
+    name = Column(String, nullable=False)
+    type = Column(EnumType(ContentType), nullable=False)
+    character_contents = relationship('CharacterContent')
